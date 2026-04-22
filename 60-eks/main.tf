@@ -1,5 +1,5 @@
 module "eks" {
-  source = "../../terraform-aws-eks"
+  source = "../../terraform-infra-eks"
 
   project     = var.project
   environment = var.environment
