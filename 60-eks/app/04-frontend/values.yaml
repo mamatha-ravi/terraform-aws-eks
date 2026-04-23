@@ -3,4 +3,5 @@ deployment:
   imageName: "mamatar/frontend"
   imageVersion: "1.4.0"
 ingress:
-  host: "roboshop-dev.devops.online"
+  host: "roboshop-dev.devops88s.online"    # ← fix domain devops.online → devops88s.online
+  # certificateArn: "arn:aws:acm:us-east-1:982597090414:certificate/ba004d1e-51af-47fa-b6ac-6da6b35f662b"  # ← add this
