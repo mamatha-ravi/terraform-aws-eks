@@ -60,12 +60,19 @@ kubectl apply -f redis/manifest.yaml
 kubectl apply -f rabbitmq/manifest.yaml
 ```
 
-We are using MySQL as an RDS service. Make sure it is created, data is loaded through the bastion, and an SG rule exists in RDS to accept traffic from the EKS nodes.
+We are using MySQL as an RDS service. Make sure it is created, data is loaded through the bastion, and an SG rule exists in RDS to accept traffic from the EKS nodes. 
+in bash
+ scp app-user.sql master-data.sql ec2-user@<bastion-ip>:/tmp
 
 Transfer the database files to bastion and then load them:
 ```bash
-mysql -h <end-point> -u root -PRoboShop#123
-```
+mysql -h <end-point> -u root  -p'RoboShop#123'  #endpoint of rds
+
+mysql -h roboshop-dev.cohi6q8wqf1j.us-east-1.rds.amazonaws.com -u root -p'RoboShop#123' < /tmp/app-user.sql
+ mysql -h roboshop-dev.cohi6q8wqf1j.us-east-1.rds.amazonaws.com -u root -p'RoboShop#123' < /tmp/master-data.sql
+
+``` 
+
 
 ## Stateless Apps
 
@@ -77,7 +84,11 @@ helm upgrade --install cart .
 helm upgrade --install shipping .
 helm upgrade --install payment .
 ```
-
+to debug 
+kubectl apply -f ../debug/manifest.yaml
+k9s
+debug pod s to shell
+curl http://catalogue:8080/health
 ## Exposing App to Internet
 
 1. Ingress controller
