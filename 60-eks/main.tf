@@ -14,7 +14,7 @@ module "eks" {
     blue = {
       create             = var.enable_blue
       kubernetes_version = var.eks_nodegroup_blue_version
-      instance_types     = ["c3.large", "c4.large", "c5.large", "c5d.large", "c5n.large", "c5a.large"]
+      instance_types     = ["m7i-flex.large"]
       capacity_type  = "SPOT"
       min_size       = 2
       max_size       = 10
@@ -29,7 +29,7 @@ module "eks" {
     green = {
       create             = var.enable_green
       kubernetes_version = var.eks_nodegroup_green_version
-      instance_types     = ["c3.large", "c4.large", "c5.large", "c5d.large", "c5n.large", "c5a.large"]
+      instance_types     = ["m7i-flex.large"]
       capacity_type      = "SPOT"
       min_size           = 2
       max_size           = 10
