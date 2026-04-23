@@ -29,7 +29,7 @@ module "db" {
 
   # Database Deletion Protection
   deletion_protection = false
-
+ skip_final_snapshot = true    # ← add this line
   parameters = [
     {
       name  = "character_set_client"
