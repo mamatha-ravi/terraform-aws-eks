@@ -4,4 +4,8 @@ module "vpc"{
     project = var.project
     environment = var.environment
     is_peering_required = true
+     private_subnet_tags = {
+    "kubernetes.io/role/internal-elb"        = "1"
+    "kubernetes.io/cluster/roboshop-dev"     = "shared"
+  }
 }
