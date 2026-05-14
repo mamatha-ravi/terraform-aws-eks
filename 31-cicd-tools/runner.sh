@@ -9,12 +9,15 @@ xfs_growfs /var
 xfs_growfs /home
 xfs_growfs /
 
-# Java
-yum install fontconfig java-21-openjdk -y
+# Java and Maven
+dnf install maven -y
 
 # NodeJS
 dnf module enable nodejs:20 -y
 dnf install nodejs -y
+
+# Install python3
+dnf install python3 gcc python3-devel -y
 
 # Docker
 dnf -y install dnf-plugins-core
@@ -42,3 +45,5 @@ sudo install -m 0755 /tmp/k9s /usr/local/bin && rm /tmp/k9s
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+
+curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.70.0

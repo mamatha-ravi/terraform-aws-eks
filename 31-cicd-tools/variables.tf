@@ -7,7 +7,7 @@ variable "environment" {
 }
 
 variable "zone_id" {
-    default = "Z03338611JYIFQWLKNVHI"   
+    default = "Z03338611JYIFQWLKNVHI"
 }
 
 variable "domain_name" {
@@ -16,4 +16,12 @@ variable "domain_name" {
 
 variable "sonar" {
     default = false
+}
+
+variable "jenkins" {
+    default = false
+}
+
+variable "runner" {
+    default = true
 }

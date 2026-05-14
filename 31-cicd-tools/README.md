@@ -50,15 +50,28 @@ terraform apply -var="sonar=false"
 Once you setup and login to jenkins.
 
 ### Plugins
+* Pipeline stage view
 * Pipeline utility steps
 * AWS creds
 * AWS Steps
 * Sonarqube scanner
+* Multibranch Scan Webhook Trigger
+* JIRA Pipeline Steps
+* Generic webhook trigger
 
 ### Credentials
 * ssh-creds
 * aws-creds
 * sonar-creds
+* github-token
+    * Create fine grained token
+    * Under profile -> Settings -> Developer Settings -> Fine grained token
+    * Select all repos
+    * Permissions
+        * Dependabot alerts -> Read
+        * Commit statuses -> Read and Write
+        * Code -> Read and Write
+* jira-creds (JIRA free trail)
 
 ### Master Node architecture
 * jenkins agent is jenkins-agent.daws88s.online
@@ -66,12 +79,15 @@ Once you setup and login to jenkins.
 
 # Sonar
 
-* Scanner Tool configuration
-* Server configuration in system
-* Authentication token
+* Scanner Tool configuration -> sonar-8
+* Server configuration in system -> sonar-server
+* Sonar Authentication token
 * Webhook
 * Standard mode
 * Quality gate creation
+
+# Jenkins shared library
+* configure jenkins-shared-library repo in Manage Jenkins -> System -> Global trusted library section
 
 ### 🐞 Bugs
 
